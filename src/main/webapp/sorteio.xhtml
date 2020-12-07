@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:h="http://xmlns.jcp.org/jsf/html"
+    xmlns:f="http://java.sun.com/jsf/core" xmlns:p="http://primefaces.org/ui">
+<h:head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <title>Sorteio</title>
+</h:head>
+<h:body>
+    <p:messages />
+    <h:form>
+        <h:form>
+            <p:panelGrid columns="2">
+                <p:outputLabel value="Nome: " />
+                <p:inputText value="#{sorteioBean.sorteio.nome}" />
+                <p:commandButton action="#{sorteioBean.sortear}" value="Sortear" ajax="false" />
+            </p:panelGrid>
+        </h:form>
+    </h:form>
+    <br />
+    <p:dataTable value="#{sorteioBean.pares}" var="par">
+        <p:column>
+            <f:facet name="header">Nome do sorteio:</f:facet>
+            <h:outputText value="#{par.sorteio.nome}" />
+        </p:column>
+        <p:column>
+            <f:facet name="header">Amigo:</f:facet>
+            <h:outputText value="#{par.amigo.nome}" />
+        </p:column>
+        <p:column>
+            <f:facet name="header">Amigo oculto:</f:facet>
+            <h:outputText value="#{par.amigoOculto.nome}" />
+        </p:column>
+    </p:dataTable>
+</h:body>
+</html>
